@@ -1,0 +1,3 @@
+C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/ReversiITU.dir
+C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/rebuild_cache.dir
