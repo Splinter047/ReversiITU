@@ -452,3 +452,151 @@ events:
       Running the CXX compiler's linker: "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/mingw/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.40
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:250 (check_include_file)"
+      - "cmake-build-debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "cmake-build-debug/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-58jab4"
+      binary: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-58jab4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-58jab4'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_c53cf
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_c53cf.dir/CheckIncludeFile.c.obj -c C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-58jab4/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_c53cf.dir/CheckIncludeFile.c.obj -o cmTC_c53cf.exe -Wl,--out-implib,libcmTC_c53cf.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:251 (check_include_file)"
+      - "cmake-build-debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "cmake-build-debug/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kt7la5"
+      binary: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kt7la5"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kt7la5'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_6f249
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_6f249.dir/CheckIncludeFile.c.obj -c C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kt7la5/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_6f249.dir/CheckIncludeFile.c.obj -o cmTC_6f249.exe -Wl,--out-implib,libcmTC_6f249.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:252 (check_include_file)"
+      - "cmake-build-debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "cmake-build-debug/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0xmqq8"
+      binary: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0xmqq8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0xmqq8'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_c11b5
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_c11b5.dir/CheckIncludeFile.c.obj -c C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0xmqq8/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_c11b5.dir/CheckIncludeFile.c.obj -o cmTC_c11b5.exe -Wl,--out-implib,libcmTC_c11b5.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "cmake-build-debug/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "cmake-build-debug/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Check size of void*"
+    directories:
+      source: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3indlh"
+      binary: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3indlh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_SIZEOF_VOID_PTR"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3indlh'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_eb0e3
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_eb0e3.dir/SIZEOF_VOID_PTR.c.obj -c C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3indlh/SIZEOF_VOID_PTR.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_eb0e3.dir/SIZEOF_VOID_PTR.c.obj -o cmTC_eb0e3.exe -Wl,--out-implib,libcmTC_eb0e3.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "cmake-build-debug/_deps/sfml-src/src/SFML/Window/CMakeLists.txt:332 (check_include_file)"
+    checks:
+      - "Looking for dinput.h"
+    directories:
+      source: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-x1ublp"
+      binary: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-x1ublp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/_deps/sfml-src/cmake/Modules/"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "DINPUT_H_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-x1ublp'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe -v cmTC_2eb4f
+        [1/2] C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe    -o CMakeFiles/cmTC_2eb4f.dir/CheckIncludeFile.c.obj -c C:/Users/Muaaz/Documents/ProgrammingFundamentals/Reversi/ReversiITU/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-x1ublp/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\PROGRA~1\\JETBRA~1\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_2eb4f.dir/CheckIncludeFile.c.obj -o cmTC_2eb4f.exe -Wl,--out-implib,libcmTC_2eb4f.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+...
