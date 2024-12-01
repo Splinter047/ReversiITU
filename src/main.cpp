@@ -15,6 +15,8 @@ const int PAUSE_OPTIONS = 3;
 modes GAME_MODE;
 char DISCS[][BOARD_SIZE]{'-'};
 int TURN = 0;
+char WINNER = ' ';
+int blacks = 0, whites = 0;
 
 gamestate CUR_STATE = menu;
 int menuSel = 0;
@@ -28,11 +30,13 @@ void gameDisplay(sf::RenderWindow &window, sf::RectangleShape[][BOARD_SIZE]);
 void setDiscs(std::ifstream &file);
 void makeMove(int, int, char);
 bool validDir(int, int, int, int, char);
-void countDiscs(int &, int &);
+void countDiscs();
 void callAI(int &, int &, char);
 void saveFile(std::ofstream &file);
 void pauseInput(sf::RenderWindow &window);
 void pauseDisplay(sf::RenderWindow &window);
+void overInput(sf::RenderWindow &window);
+void overDisplay(sf::RenderWindow &window);
 
 int main() {
 	sf::RenderWindow window(
@@ -44,7 +48,7 @@ int main() {
 
 	sf::RectangleShape board[BOARD_SIZE][BOARD_SIZE];
 	initBoard(board);
-	std::ifstream initFile("board_init.txt");
+	std::ifstream initFile(".\\board_init.txt");
 	setDiscs(initFile);
 	initFile.close();
 
@@ -66,6 +70,9 @@ int main() {
 				case pause:
 					pauseInput(window);
 					break;
+				case over:
+					overInput(window);
+					break;
 			}
 
 			window.clear();
@@ -83,8 +90,21 @@ int main() {
 				case pause:
 					pauseDisplay(window);
 					break;
+				case over:
+					overDisplay(window);
+					break;
 			}
 			window.display();
+
+			if(CUR_STATE != over) {
+				if((blacks + whites) == 64) {
+					if(blacks > whites) WINNER = 'O';
+					else if(blacks < whites) WINNER = 'X';
+					else WINNER = 'D';
+					sf::sleep(sf::milliseconds(500));
+					CUR_STATE = over;
+				}
+			}
 		}
 	}
 }
@@ -139,7 +159,7 @@ void menuInput(sf::RenderWindow &window) {
 				break;
 			case 2: {
 				int mode;
-				std::ifstream load("saved_board.txt");
+				std::ifstream load(".\\saved_board.txt");
 				setDiscs(load);
 				load >> mode >> TURN;
 				if(mode == 0) {GAME_MODE = ai; CUR_STATE = game_ai;}
@@ -164,7 +184,6 @@ void gameInput(sf::RenderWindow &window, sf::Event &event, bool aiMode) {
 		sf::sleep(sf::milliseconds(150));
 		makeMove(posX, posY, curPlayer);
 		TURN++;
-
 	}
 	else if (event.type == sf::Event::MouseButtonPressed) {
 		sf::Vector2i mousePos = sf::Mouse::getPosition(window);
@@ -176,6 +195,7 @@ void gameInput(sf::RenderWindow &window, sf::Event &event, bool aiMode) {
 			TURN++;
 		}
 	}
+	countDiscs();
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
 		CUR_STATE = pause;
@@ -283,12 +303,12 @@ bool validDir(int dirX, int dirY, int posX, int posY, char player) {
 	return false;
 }
 
-void countDiscs(int &black, int &white) {
-	black = 0, white = 0;
+void countDiscs() {
+	blacks = 0, whites = 0;
 	for (int i = 0; i < BOARD_SIZE; i++) {
 		for (int j = 0; j < BOARD_SIZE; j++) {
-			if (DISCS[i][j] == 'X') white++;
-			else if (DISCS[i][j] == 'O') black++;
+			if (DISCS[i][j] == 'X') whites++;
+			else if (DISCS[i][j] == 'O') blacks++;
 		}
 	}
 }
@@ -347,7 +367,7 @@ void pauseInput(sf::RenderWindow &window) {
 				break;
 			}
 			case 1: {
-				std::ofstream file("saved_board.txt");
+				std::ofstream file(".\\saved_board.txt");
 				saveFile(file);
 				break;
 			}
@@ -411,6 +431,37 @@ void callAI(int &posX, int &posY, char player) {
 		posY = bestY;
 	}
 }
+
+void overInput(sf::RenderWindow &window) {
+	sf::sleep(sf::milliseconds(500));
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		window.close();
+}
+
+void overDisplay(sf::RenderWindow &window) {
+	sf::Font font;
+	font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf");
+
+	sf::Text titleText("GAME OVER!", font, 50);
+	titleText.setFillColor(sf::Color::White);
+	titleText.setPosition(300, 100);
+	window.draw(titleText);
+
+	sf::Text winText;
+
+	if(WINNER == 'X') winText.setString("White wins!");
+	else if (WINNER == 'O') winText.setString("Black wins!");
+	else if (WINNER == 'D') winText.setString("Match is a Draw!");
+
+	winText.setFont(font);
+	winText.setCharacterSize(40);
+	winText.setFillColor(sf::Color::White);
+	winText.setPosition(300, 300);
+	window.draw(winText);
+
+}
+
 
 
 
