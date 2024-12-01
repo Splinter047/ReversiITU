@@ -37,6 +37,7 @@ void pauseInput(sf::RenderWindow &window);
 void pauseDisplay(sf::RenderWindow &window);
 void overInput(sf::RenderWindow &window);
 void overDisplay(sf::RenderWindow &window);
+void intToStr(char[], int, int);
 
 int main() {
 	sf::RenderWindow window(
@@ -112,24 +113,26 @@ int main() {
 void menuDisplay(sf::RenderWindow &window) {
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf");
+	sf::Color textCol(25, 156, 60);
 
 	const char* menuOpts[] = {"New Game with AI", "New Game with 2P", "Load Save", "Exit"};
 
-	sf::Text titleText("REVERSI", font, 50);
-	titleText.setFillColor(sf::Color::White);
-	titleText.setPosition(300, 100);
+	window.clear(textCol);
+	sf::Text titleText("REVERSI", font, 80);
+	titleText.setFillColor(sf::Color::Black);
+	titleText.setPosition(250, 150);
 	window.draw(titleText);
 
 	for (int i = 0; i < MENU_OPTIONS; ++i) {
 		sf::Text optText(menuOpts[i], font, 30);
 
 		if (i == menuSel) {
-			optText.setFillColor(sf::Color::Red);
-		} else {
 			optText.setFillColor(sf::Color::White);
+		} else {
+			optText.setFillColor(sf::Color::Black);
 		}
 
-		optText.setPosition(350, 250 + i * 50);
+		optText.setPosition(300, 350 + i * 50);
 		window.draw(optText);
 	}
 }
@@ -326,12 +329,14 @@ void saveFile(std::ofstream &file) {
  void pauseDisplay(sf::RenderWindow &window) {
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf");
+	sf::Color textCol(18, 61, 30);
 
 	const char* menuOpts[] = {"Resume", "Save", "Exit"};
 
-	sf::Text titleText("PAUSED", font, 50);
+	window.clear(textCol);
+	sf::Text titleText("PAUSED", font, 70);
 	titleText.setFillColor(sf::Color::White);
-	titleText.setPosition(300, 100);
+	titleText.setPosition(280, 100);
 	window.draw(titleText);
 
 	for (int i = 0; i < PAUSE_OPTIONS; ++i) {
@@ -343,7 +348,7 @@ void saveFile(std::ofstream &file) {
 			optText.setFillColor(sf::Color::White);
 		}
 
-		optText.setPosition(350, 250 + i * 50);
+		optText.setPosition(300, 250 + i * 50);
 		window.draw(optText);
 	}
 }
@@ -442,10 +447,12 @@ void overInput(sf::RenderWindow &window) {
 void overDisplay(sf::RenderWindow &window) {
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf");
+	sf::Color bgCol(173, 184, 201);
 
-	sf::Text titleText("GAME OVER!", font, 50);
-	titleText.setFillColor(sf::Color::White);
-	titleText.setPosition(300, 100);
+	window.clear(bgCol);
+	sf::Text titleText("GAME OVER!", font, 80);
+	titleText.setFillColor(sf::Color::Black);
+	titleText.setPosition(210, 100);
 	window.draw(titleText);
 
 	sf::Text winText;
@@ -456,13 +463,34 @@ void overDisplay(sf::RenderWindow &window) {
 
 	winText.setFont(font);
 	winText.setCharacterSize(40);
-	winText.setFillColor(sf::Color::White);
+	winText.setFillColor(sf::Color::Black);
 	winText.setPosition(300, 300);
 	window.draw(winText);
 
+	char blackScore[50] = "Black Discs: ";
+	char whiteScore[50] = "White Discs: ";
+	intToStr(blackScore, blacks, 13);
+	intToStr(whiteScore, whites, 13);
+
+	sf::Text scoreText(blackScore, font, 40);
+	scoreText.setFillColor(sf::Color::Black);
+	scoreText.setPosition(280, 400);
+	window.draw(scoreText);
+	scoreText.setString(whiteScore);
+	scoreText.setPosition(280, 450);
+	window.draw(scoreText);
 }
 
+void intToStr(char numStr[], int num, int start) {
+	int len = 0, temp = num;
+	while (temp > 0) {
+		temp /= 10;
+		len++;
+	}
 
-
-
-
+	for (int i = 0; i < len; i++) {
+		numStr[start + len - i -1] = (num % 10) + '0';
+		num /= 10;
+	}
+	numStr[start + len] = '\0';
+}
