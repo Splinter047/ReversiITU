@@ -13,9 +13,14 @@ FetchContent_Declare(SFML
         SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(ReversiITU src/main.cpp)
+add_executable(ReversiITU src/main.cpp
+)
 target_link_libraries(ReversiITU PRIVATE sfml-graphics)
 target_compile_features(ReversiITU PRIVATE cxx_std_17)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/board_init.txt
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/board_init.txt COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/saved_board.txt
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/saved_board.txt COPYONLY)
 
 if(WIN32)
     add_custom_command(
